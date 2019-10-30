@@ -1,4 +1,5 @@
 var addButton = document.querySelector("#add");
+var removeButton = document.querySelector("#remove");
 var formBuilder = document.querySelector("#formBuilder");
 var fieldNumber = 1;
 
