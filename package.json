@@ -1,0 +1,24 @@
+{
+  "name": "form-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maslaral/formbuilder.git"
+  },
+  "author": "Alex Maslar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maslaral/formbuilder/issues"
+  },
+  "homepage": "https://github.com/maslaral/formbuilder#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  }
+}
