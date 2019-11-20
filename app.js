@@ -29,8 +29,9 @@ app.get("/forms/new", function(req, res) {
 });
 
 app.post("/forms", upload.fields([]), function(req, res) {
-  console.log(req.body);
+  console.log(req.body.name);
   forms.push(req.body);
+  console.log(forms);
   res.redirect("/forms");
 });
 

@@ -1,8 +1,8 @@
 <h1>Admin Page</h1>
 
 <form id="newForm" action="/forms" method="POST" enctype="multipart/form-data">
-  <input type="text" name="name" placeholder="Form Name" />
-  <input type="text" name="desc" placeholder="Description" />
+  <input type="text" name="name" placeholder="Form Name" required />
+  <input type="text" name="desc" placeholder="Description" required />
 
   <span id="newInputs"></span>
 
@@ -13,6 +13,7 @@
 <script>
   var newInputSpan = document.querySelector("#newInputs");
   var button = document.querySelector("#addInput");
+
   button.addEventListener("click", function () {
     // getting name and placeholder text
     var newInputPlaceholder = prompt("Provide a name for the new input.");
@@ -23,7 +24,7 @@
     newInput.setAttribute("type", "text");
     newInput.setAttribute("name", newInputName);
     newInput.setAttribute("placeholder", newInputPlaceholder);
-    newInput.setAttribute("disabled", true);
+    newInput.setAttribute("readonly", "readonly")
     newInputSpan.appendChild(newInput);
   });
 
