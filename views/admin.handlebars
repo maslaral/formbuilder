@@ -1,8 +1,37 @@
 <h1>Admin Page</h1>
 
-<form id="newForm" action="/forms" method="POST">
+<form id="newForm" action="/forms" method="POST" enctype="multipart/form-data">
   <input type="text" name="name" placeholder="Form Name" />
   <input type="text" name="desc" placeholder="Description" />
-  <span id="addFields"></span>
+
+  <span id="newInputs"></span>
+
+  <input type="button" id="addInput" value="Add Input" />
   <input type="submit" />
 </form>
+
+<script>
+  var newInputSpan = document.querySelector("#newInputs");
+  var button = document.querySelector("#addInput");
+  button.addEventListener("click", function () {
+    // getting name and placeholder text
+    var newInputPlaceholder = prompt("Provide a name for the new input.");
+    var newInputName = camelize(newInputPlaceholder);
+
+    // creating the new input
+    var newInput = document.createElement("input");
+    newInput.setAttribute("type", "text");
+    newInput.setAttribute("name", newInputName);
+    newInput.setAttribute("placeholder", newInputPlaceholder);
+    newInput.setAttribute("disabled", true);
+    newInputSpan.appendChild(newInput);
+  });
+
+  // function copied from stack overflow:
+  // https://stackoverflow.com/questions/2970525/converting-any-string-into-camel-case#2970667
+  function camelize(str) {
+    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+      return index == 0 ? word.toLowerCase() : word.toUpperCase();
+    }).replace(/\s+/g, '');
+  }
+</script>

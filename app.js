@@ -5,6 +5,8 @@ var handlebars = require("express-handlebars").create({
   defaultLayout: "main"
 });
 var bodyParser = require("body-parser");
+var multer = require("multer");
+var upload = multer({ dest: "uploads/" });
 
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
@@ -26,11 +28,9 @@ app.get("/forms/new", function(req, res) {
   res.render("admin");
 });
 
-app.post("/forms", function(req, res) {
-  var name = req.body.name;
-  var desc = req.body.desc;
-  var newForm = { name: name, desc: desc };
-  forms.push(newForm);
+app.post("/forms", upload.fields([]), function(req, res) {
+  console.log(req.body);
+  forms.push(req.body);
   res.redirect("/forms");
 });
 
