@@ -5,7 +5,7 @@
     {{#each forms}}
     <form action="/forms/view" method="GET">
       <input type="hidden" name="id" value={{id}} />
-      <input type="submit" value={{name}} />
+      <input type="submit" value='{{name}}' />
     </form>
     {{/each}}
   </ul>
