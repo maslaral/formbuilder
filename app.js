@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 var forms = [];
+var completedForms = [];
 
 app.get("/", function (req, res) {
   res.render("landing");
