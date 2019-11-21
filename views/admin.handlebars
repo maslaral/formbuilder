@@ -26,7 +26,8 @@
     newInput.setAttribute("type", "text");
     newInput.setAttribute("name", `inputs[${newInputName}]`);
     newInput.setAttribute("placeholder", newInputPlaceholder);
-    newInput.setAttribute("readonly", "readonly")
+    newInput.setAttribute("readonly", "readonly");
+    newInput.setAttribute("value", newInputPlaceholder);
     newInputSpan.appendChild(newInput);
   });
 

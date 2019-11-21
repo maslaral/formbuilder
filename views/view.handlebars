@@ -9,10 +9,25 @@
   document.getElementById("formName").innerHTML = viewForm.name;
   document.getElementById("formDesc").innerHTML = viewForm.desc;
 
+  var inputs = viewForm.inputs;
+  var formFields = document.getElementById("formFields");
 
-  // var field = document.createElement("input");
-  // field.setAttribute("name", viewForm.name);
-  // field.setAttribute("type", "text");
-  // document.getElementById("formFields").appendChild(node);
+  console.log(inputs);
 
+  for (var field in inputs) {
+    var newField = document.createElement("input");
+    newField.setAttribute("type", "text");
+    newField.setAttribute("placeholder", "Enter text input here.");
+    newField.setAttribute("name", field);
+
+    var newLabel = document.createElement("label");
+    newLabel.htmlFor = field;
+    newLabel.innerHTML = inputs[field];
+
+    formFields.appendChild(newLabel);
+    formFields.appendChild(newField);
+
+    var br = document.createElement("br");
+    formFields.appendChild(br);
+  }
 </script>
