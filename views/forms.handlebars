@@ -1,9 +1,18 @@
 <h1>Complete Forms</h1>
 
-<div id="form_list">
-  <ul>
-    {{#each forms}}<li id={{name}}>{{name}} - {{desc}}</li>{{/each}}
+<div id="forms">
+  <ul id="form_list">
+    {{#each forms}}
+    <form action="/forms/view" method="GET">
+      <input type="hidden" name="id" value={{id}} />
+      <input type="submit" value={{name}} />
+    </form>
+    {{/each}}
   </ul>
 </div>
 
 <a href="/forms/new">Create new form</a>
+
+<script>
+
+</script>

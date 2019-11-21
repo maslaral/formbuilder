@@ -1,0 +1,17 @@
+<div id="formInfo">
+  <h1 id="formName"></h1>
+  <p id="formDesc"></p>
+  <form id="formFields"></form>
+</div>
+
+<script>
+  var viewForm = {{{ formItem }}};
+  document.getElementById("formName").innerHTML = viewForm.name;
+  document.getElementById("formDesc").innerHTML = viewForm.desc;
+
+  // var field = document.createElement("input");
+  // field.setAttribute("name", viewForm.name);
+  // field.setAttribute("type", "text");
+  // document.getElementById("formFields").appendChild(node);
+
+</script>
