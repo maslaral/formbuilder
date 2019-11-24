@@ -1,5 +1,4 @@
 <div class="container-fluid">
-  <h1>Admin Panel</h1>
   <form id="newForm" action="/forms" method="POST" enctype="multipart/form-data">
     <div class="form-group"> <label for="name">Form Name</label>
       <textarea class="form-control" name="name" placeholder="Enter name of form" rows="1" required></textarea>
@@ -8,40 +7,10 @@
       <textarea class="form-control" name="desc" placeholder="Enter description of form" rows="3" required></textarea>
       <br>
       <span id="newInputs"></span>
-      <input type="button" class="btn btn-primary" id="addInput" value="Add Input" />
+      <button type="button" class="btn btn-primary" id="addInput">Add Input</button>
       <button type="submit" class="btn btn-secondary">Submit</button>
     </div>
   </form>
 </div>
 
-<script>
-  var newInputSpan = document.querySelector("#newInputs");
-  var button = document.querySelector("#addInput");
-
-  button.addEventListener("click", function () {
-    // getting name and placeholder text
-    var newInputPlaceholder = prompt("Provide a name for the new input.");
-    var newInputName = camelize(newInputPlaceholder);
-
-    // creating the new input
-    var newInput = document.createElement("textarea");
-    newInput.setAttribute("class", "form-control");
-    newInput.setAttribute("rows", "1");
-    newInput.setAttribute("name", `inputs[${newInputName}]`);
-    newInput.setAttribute("placeholder", newInputPlaceholder);
-    newInput.setAttribute("readonly", "readonly");
-    newInput.setAttribute("value", newInputPlaceholder);
-    newInputSpan.appendChild(newInput);
-
-    var br = document.createElement("br");
-    newInputSpan.appendChild(br);
-  });
-
-  // source of function from stack overflow thread:
-  // https://stackoverflow.com/questions/2970525/converting-any-string-into-camel-case#2970667
-  function camelize(str) {
-    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
-      return index == 0 ? word.toLowerCase() : word.toUpperCase();
-    }).replace(/\s+/g, '');
-  }
-</script>
+<script type="text/javascript" src="/static/javascript/admin.js"></script>

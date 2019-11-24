@@ -1,10 +1,22 @@
 <div class="container-fluid">
   {{#each completedForms}}
   <form action="/forms/completed/view_completed" method="GET">
-    <input type="hidden" name="id" value={{id}} />
-    <button type="submit" class="btn btn-link">{{name}}</button>
-    <label for="submit">Completed on {{time}}</label>
+    <div class="row">
+      <input type="hidden" name="id" value={{id}} />
+      <div class="col">
+        <button type="submit" class="btn btn-link">{{name}}</button>
+      </div>
+      <div class="col">
+        <label for="submit">Completed on {{time}}</label>
+      </div>
+      <div class="col" id="status">
+      </div>
+    </div>
   </form>
+
+  <script type="text/javascript" src="/static/javascript/completed.js"></script>
+  <script>displayStatus({{ viewStatus }})</script>
+
   {{else}}
   <p>There are no completed forms available. Complete a form to get started!</p>
   {{/each}}

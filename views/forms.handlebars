@@ -1,9 +1,15 @@
 <div class="container-fluid">
   {{#each forms}}
   <form action="/forms/view" method="GET">
-    <input type="hidden" name="id" value={{id}} />
-    <button type="submit" class="btn btn-link">{{name}}</button>
-    <label for="name">{{desc}}</label>
+    <div class="row">
+      <input type="hidden" name="id" value={{id}} />
+      <div class="col">
+        <button type="submit" class="btn btn-link">{{name}}</button>
+      </div>
+      <div class="col">
+        <label for="name">{{desc}}</label>
+      </div>
+    </div>
   </form>
   {{else}}
   <p>There are no forms available. Create a form to get started!</p>

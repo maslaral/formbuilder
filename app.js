@@ -8,15 +8,15 @@ var bodyParser = require("body-parser");
 var fs = require("fs");
 var multer = require("multer");
 var upload = multer({ dest: "uploads/" });
+var path = require("path");
 
 app.engine("handlebars", expressHandlebars.engine);
 app.set("view engine", "handlebars");
 app.set("port", 3000);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static("style"));
+app.use("/static", express.static(path.join(__dirname, "public")));
 
-// example data to populate the application
 var forms = [
   {
     name: "Media Reviews",
@@ -60,6 +60,7 @@ var completedForms = [
     desc: "Content intake form for product media reviews.",
     time: "Sat Nov 23 2019 15:44:36 GMT-0600 (CST)",
     id: 0,
+    viewStatus: 0,
     inputs: {
       modelNumbers: "52241",
       publication: "Cycling Tips",
@@ -74,6 +75,7 @@ var completedForms = [
     desc: "Content intake form for video overviews.",
     time: "Sat Nov 23 2019 15:46:33 GMT-0600 (CST)",
     id: 1,
+    viewStatus: 0,
     inputs: {
       videoTitle: "How To: Change Your Tires",
       bodyCopy:
@@ -83,6 +85,7 @@ var completedForms = [
   }
 ];
 
+// example data to populate the application
 app.get("/", function(req, res) {
   res.render("landing");
 });
@@ -112,7 +115,8 @@ app.post("/forms/view", upload.fields([]), function(req, res) {
   var position = completedForms.length;
   completedForms.push(req.body);
   completedForms[position].id = position;
-  res.redirect("../forms");
+  completedForms[position].viewStatus = 0;
+  res.redirect("../forms/completed");
 });
 
 app.get("/forms/completed", function(req, res) {
@@ -122,6 +126,7 @@ app.get("/forms/completed", function(req, res) {
 app.get("/forms/completed/view_completed", function(req, res) {
   var id = req.query.id;
   var formItem = completedForms[id];
+  completedForms[id].viewStatus = 1;
   res.render("view_completed", { formItem: JSON.stringify(formItem) });
 });
 
