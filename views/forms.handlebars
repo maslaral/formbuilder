@@ -1,14 +1,11 @@
-<h1>Complete Forms</h1>
-
-<div id="forms">
-  <ul id="form_list">
-    {{#each forms}}
-    <form action="/forms/view" method="GET">
-      <input type="hidden" name="id" value={{id}} />
-      <input type="submit" value='{{name}}' />
-    </form>
-    {{/each}}
-  </ul>
+<div class="container-fluid">
+  {{#each forms}}
+  <form action="/forms/view" method="GET">
+    <input type="hidden" name="id" value={{id}} />
+    <button type="submit" class="btn btn-link">{{name}}</button>
+    <label for="name">{{desc}}</label>
+  </form>
+  {{else}}
+  <p>There are no forms available. Create a form to get started!</p>
+  {{/each}}
 </div>
-
-<a href="/forms/new">Create new form</a>

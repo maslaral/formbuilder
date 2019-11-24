@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h1 id="header"></h1>
+  <p id="caption"></p>
+  <p id="time"></p>
+  <form action="/forms/completed/view_completed" method="POST">
+    <div class="form-group">
+      <span id="formCompleted"></span>
+      <button type="submit" class="btn btn-primary">Export Data</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  var viewForm = {{{ formItem }}};
+  var inputs = viewForm.inputs;
+
+  document.getElementById("header").innerHTML = viewForm.name;
+  document.getElementById("caption").innerHTML = viewForm.desc;
+  document.getElementById("time").innerHTML = "Completed on " + viewForm.time;
+
+  for (var field in inputs) {
+    var displayInput = document.createElement("textarea");
+    displayInput.setAttribute("class", "form-control")
+    displayInput.setAttribute("name", field);
+    displayInput.value = inputs[field];
+    displayInput.setAttribute("rows", "1");
+    displayInput.setAttribute("readonly", "readonly");
+
+    var newLabel = document.createElement("label");
+    newLabel.htmlFor = field;
+    newLabel.innerHTML = field;
+
+    formCompleted.appendChild(newLabel);
+    formCompleted.appendChild(displayInput);
+
+    var br = document.createElement("br");
+    formCompleted.appendChild(br);
+  }
+</script>

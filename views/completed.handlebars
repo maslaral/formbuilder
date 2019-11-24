@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  {{#each completedForms}}
+  <form action="/forms/completed/view_completed" method="GET">
+    <input type="hidden" name="id" value={{id}} />
+    <button type="submit" class="btn btn-link">{{name}}</button>
+    <label for="submit">Completed on {{time}}</label>
+  </form>
+  {{else}}
+  <p>There are no completed forms available. Complete a form to get started!</p>
+  {{/each}}
+</div>
