@@ -1,16 +1,15 @@
 <div class="container-fluid">
   {{#each forms}}
-  <form action="/forms/view" method="GET">
-    <div class="row">
-      <input type="hidden" name="id" value={{id}} />
-      <div class="col">
-        <button type="submit" class="btn btn-link">{{name}}</button>
-      </div>
-      <div class="col">
-        <label for="name">{{desc}}</label>
-      </div>
+  <div class="card text-center">
+    <div class="card-header">{{name}}</div>
+    <div class="card-body">
+      <form action="/forms/view" method="GET">
+        <input type="hidden" name="id" value={{id}} />
+        <p class="card-text">{{desc}}</p>
+        <button type="submit" class="btn btn-secondary">Fill Out Form</button>
+      </form>
     </div>
-  </form>
+  </div>
   {{else}}
   <p>There are no forms available. Create a form to get started!</p>
   {{/each}}

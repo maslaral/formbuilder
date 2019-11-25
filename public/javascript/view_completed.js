@@ -4,7 +4,6 @@ function displayForm(viewForm) {
   // set header, caption, and timestamp values
   document.getElementById("header").innerHTML = viewForm.name;
   document.getElementById("caption").innerHTML = viewForm.desc;
-  document.getElementById("time").innerHTML = "Completed on " + viewForm.time;
 
   // create the inputs - set required attributes
   for (var field in inputs) {

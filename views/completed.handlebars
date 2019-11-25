@@ -1,23 +1,29 @@
 <div class="container-fluid">
-  {{#each completedForms}}
-  <form action="/forms/completed/view_completed" method="GET">
-    <div class="row">
-      <input type="hidden" name="id" value={{id}} />
-      <div class="col">
-        <button type="submit" class="btn btn-link">{{name}}</button>
-      </div>
-      <div class="col">
-        <label for="submit">Completed on {{time}}</label>
-      </div>
-      <div class="col" id="status">
-      </div>
-    </div>
-  </form>
-
-  <script type="text/javascript" src="/static/javascript/completed.js"></script>
-  <script>displayStatus({{ viewStatus }})</script>
-
-  {{else}}
-  <p>There are no completed forms available. Complete a form to get started!</p>
-  {{/each}}
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Form Title</th>
+        <th scope="col">Created Date/Time</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each completedForms}}
+      <form action="/forms/completed/view_completed" method="GET">
+        <input type="hidden" name="id" value={{id}} />
+        <tr>
+          <th scope="row">{{name}}</th>
+          <td>{{time}}</td>
+          <td id="status"></td>
+          <td><button type="submit" class="btn btn-secondary">View Data</button></td>
+        </tr>
+      </form>
+      <script type="text/javascript" src="/static/javascript/completed.js"></script>
+      <script>displayStatus({{ viewStatus }})</script>
+      {{else}}
+      <p>There are no completed forms available. Complete a form to get started!</p>
+      {{/each}}
+    </tbody>
+  </table>
 </div>

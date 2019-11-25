@@ -1,11 +1,13 @@
 <div class="container-fluid">
+  <div id="formHeader">
+    <h1>New Form</h1>
+    <p>Create a new form with custom inputs.</p>
+  </div>
   <form id="newForm" action="/forms" method="POST" enctype="multipart/form-data">
     <div class="form-group"> <label for="name">Form Name</label>
       <textarea class="form-control" name="name" placeholder="Enter name of form" rows="1" required></textarea>
-      <br>
       <label for="desc">Description</label>
       <textarea class="form-control" name="desc" placeholder="Enter description of form" rows="3" required></textarea>
-      <br>
       <span id="newInputs"></span>
       <button type="button" class="btn btn-primary" id="addInput">Add Input</button>
       <button type="submit" class="btn btn-secondary">Submit</button>

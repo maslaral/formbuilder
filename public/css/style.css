@@ -1,14 +1,17 @@
 :root {
-  --bg-color: white;
-  --light-text-color: white;
+  --bg-color: #eff7f6;
+  --light-text-color: #eff7f6;
   --primary-color: #1d2d44;
   --secondary-color: #48a9a6;
   --dark-text-color: #040f0f;
+  --fancy-font: "Baskervville", serif;
+  --boring-font: "Roboto", sans-serif;
 }
 
 body {
   background: var(--bg-color);
   color: var(--dark-text-color);
+  font-family: var(--boring-font);
 }
 
 textarea {
@@ -22,6 +25,10 @@ textarea {
 .jumbotron {
   background: var(--primary-color);
   color: white;
+}
+
+.jumbotron h1 {
+  font-family: var(--fancy-font);
 }
 
 .bg-company-white {
@@ -43,4 +50,73 @@ textarea {
 .btn-secondary:hover {
   background: var(--secondary-color);
   border: none;
+}
+
+.highlight h3 {
+  font-family: var(--fancy-font);
+  margin-bottom: 15px;
+}
+
+.navbar-brand {
+  font-family: var(--fancy-font);
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.container-fluid {
+  margin-top: 20px;
+}
+
+.card {
+  margin: 30px;
+}
+
+.card-body {
+  padding: 5px;
+}
+
+.table {
+  margin-top: 30px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+.table thead {
+  font-family: var(--fancy-font);
+  font-size: 18px;
+  height: 50px;
+  line-height: 50px;
+  color: var(--light-text-color);
+}
+
+.table th {
+  font-weight: normal;
+}
+
+.card-header {
+  font-family: var(--fancy-font);
+  font-size: 20px;
+}
+
+#formHeader {
+  margin: 20px;
+}
+
+#formHeader h1 {
+  font-family: var(--fancy-font);
+}
+
+#formHeader p {
+  font-style: italic;
+}
+
+form {
+  margin: 20px;
+}
+
+form .btn {
+  margin-top: 20px;
 }
