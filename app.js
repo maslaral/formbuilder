@@ -3,9 +3,7 @@ var app = express();
 var expressHandlebars = require("express-handlebars").create({
   defaultLayout: "main"
 });
-var Handlebars = require("handlebars");
 var bodyParser = require("body-parser");
-var fs = require("fs");
 var multer = require("multer");
 var upload = multer({ dest: "uploads/" });
 var path = require("path");
@@ -16,6 +14,8 @@ app.set("port", 3000);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/static", express.static(path.join(__dirname, "public")));
+
+// sample data to populate the application
 var forms = [
   {
     name: "Media Reviews",
@@ -82,7 +82,6 @@ var completedForms = [
   }
 ];
 
-// example data to populate the application
 app.get("/", function(req, res) {
   res.render("landing");
 });
@@ -125,18 +124,6 @@ app.get("/forms/completed/view_completed", function(req, res) {
   res.render("view_completed", { formItem: JSON.stringify(formItem) });
 });
 
-app.post("/forms/completed/view_completed", function(req, res) {
-  fs.writeFileSync("export.txt", JSON.stringify(req.body), err => {
-    if (err) throw err;
-  });
-  res.download("export.txt");
-});
-
 app.listen(app.get("port"), function() {
   console.log("Express started on http://localhost:" + app.get("port") + ".");
 });
-
-// Handlebar Helper Functions
-// Handlebars.registerHelper("print_list", function () {
-//  return this.name;
-// })
