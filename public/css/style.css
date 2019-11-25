@@ -19,7 +19,10 @@ textarea {
 }
 
 .highlight {
-  padding: 30px;
+  display: flex;
+  margin: 10px;
+  padding: 20px;
+  align-items: center;
 }
 
 .jumbotron {
@@ -59,10 +62,17 @@ textarea {
 
 .navbar-brand {
   font-family: var(--fancy-font);
+  margin-left: 30px;
+}
+
+.navbar-nav {
+  margin-left: 20px;
+  padding: 10px;
 }
 
 ul {
-  padding-left: 20px;
+  list-style: none;
+  padding-left: 0px;
 }
 
 .container-fluid {
@@ -102,7 +112,7 @@ ul {
 }
 
 #formHeader {
-  margin: 20px;
+  margin: 30px;
 }
 
 #formHeader h1 {
@@ -114,9 +124,31 @@ ul {
 }
 
 form {
-  margin: 20px;
+  margin: 30px;
 }
 
 form .btn {
   margin-top: 20px;
+}
+
+a,
+a:hover,
+a:visited {
+  color: var(--secondary-color);
+}
+
+.scroll-box {
+  overflow-y: scroll;
+  height: 150px;
+  text-align: center;
+}
+
+#features {
+  background: var(--primary-color);
+  color: var(--light-text-color);
+  padding: 30px;
+}
+
+#features h3 {
+  font-family: var(--fancy-font);
 }
