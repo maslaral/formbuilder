@@ -1,1 +1,1 @@
-{}
+{"videoTitle":"How To: Change Your Tires","bodyCopy":"Changing your bike tires is a regular part of maintaining your bike. Here we provide you with a video that explains the entire process.","videoURL":"www.youtube.com"}
